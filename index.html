@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Manifest — Support</title>
+<style>
+  :root {
+    --page: #f2f2fb;
+    --card: #ffffff;
+    --text: #20203a;
+    --muted: #8e8ea8;
+    --lav: #8a8ae6;
+    --lav-deep: #6f6fd8;
+    --lav-soft: #e9e9fb;
+    --gold: #e3b558;
+    --shadow: rgba(90,90,170,0.14);
+    --border: rgba(111,111,216,0.14);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #171730;
+      --card: #232347;
+      --text: #eeeefa;
+      --muted: #9a9ac2;
+      --lav-deep: #b8b8f2;
+      --lav-soft: rgba(138,138,230,0.16);
+      --shadow: rgba(0,0,0,0.35);
+      --border: rgba(255,255,255,0.08);
+    }
+  }
+  :root[data-theme="dark"] {
+    --page: #171730;
+    --card: #232347;
+    --text: #eeeefa;
+    --muted: #9a9ac2;
+    --lav-deep: #b8b8f2;
+    --lav-soft: rgba(138,138,230,0.16);
+    --shadow: rgba(0,0,0,0.35);
+    --border: rgba(255,255,255,0.08);
+  }
+  :root[data-theme="light"] {
+    --page: #f2f2fb;
+    --card: #ffffff;
+    --text: #20203a;
+    --muted: #8e8ea8;
+    --lav-deep: #6f6fd8;
+    --lav-soft: #e9e9fb;
+    --shadow: rgba(90,90,170,0.14);
+    --border: rgba(111,111,216,0.14);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--text);
+    font-family: ui-rounded, "SF Pro Rounded", Nunito, system-ui, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 600px; margin: 0 auto; padding: 60px 24px 96px; }
+  .hero { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 52px; }
+  .orb-ring {
+    width: 108px; height: 108px; border-radius: 50%;
+    border: 1.5px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+  }
+  .orb {
+    width: 82px; height: 82px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #c3ccff, var(--lav) 55%, var(--lav-deep));
+    box-shadow: 0 8px 28px var(--shadow);
+    animation: breathe 4.2s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) { .orb { animation: none; } }
+  @keyframes breathe {
+    0%, 100% { transform: scale(0.88); }
+    50% { transform: scale(1.05); }
+  }
+  h1 { font-size: 25px; font-weight: 800; margin: 0 0 8px; text-wrap: balance; }
+  .hero p { color: var(--muted); font-size: 15px; margin: 0; max-width: 380px; }
+  h2.label {
+    font-size: 12.5px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--muted); font-weight: 700; margin: 0 0 16px;
+  }
+  section { margin-bottom: 36px; }
+  details {
+    background: var(--card);
+    border-radius: 20px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 14px var(--shadow);
+  }
+  summary {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 15px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+";
+    color: var(--gold);
+    font-size: 19px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  details[open] summary::after { content: "\2013"; }
+  details p { color: var(--muted); font-size: 14px; margin: 12px 0 0; }
+  summary:focus-visible { outline: 2px solid var(--lav); outline-offset: 4px; border-radius: 6px; }
+  .contact {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 2px 14px var(--shadow);
+  }
+  .contact p { color: var(--muted); font-size: 14px; margin: 0 0 20px; }
+  .btn {
+    display: inline-block;
+    background: var(--lav);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 34px;
+    border-radius: 999px;
+    transition: transform 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12.5px;
+    margin-top: 44px;
+  }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="orb-ring"><div class="orb"></div></div>
+      <h1>Manifest — Support</h1>
+      <p>Answers to common questions, and how to reach us if you need more help.</p>
+    </div>
+
+    <section>
+      <h2 class="label">Frequently asked</h2>
+
+      <details>
+        <summary>How do I restore a purchase on a new device?</summary>
+        <p>Open Settings inside the app and tap "Restore purchase" near the bottom. This re-checks your Apple ID for any prior purchase and unlocks full access automatically — no account or login needed.</p>
+      </details>
+
+      <details>
+        <summary>How do I cancel my subscription?</summary>
+        <p>Manifest doesn't process payments directly — subscriptions are managed entirely through your Apple ID. Go to your iPhone's Settings → your name → Subscriptions → Manifest, and cancel from there.</p>
+      </details>
+
+      <details>
+        <summary>Is my data private?</summary>
+        <p>Yes. Manifest has no account system and no backend server — your intentions, streaks, and journal entries are stored only on your device and never leave it. See our Privacy Policy for details.</p>
+      </details>
+
+      <details>
+        <summary>My daily reminder isn't showing up.</summary>
+        <p>Check that notifications are enabled for Manifest in your iPhone's Settings → Notifications → Manifest, and that a reminder time is set under Settings → Morning Notification inside the app.</p>
+      </details>
+
+      <details>
+        <summary>Can I use Apple Music or Spotify during my ritual?</summary>
+        <p>Yes — in Settings, under Ritual Music, choose Apple Music or Spotify and pick a playlist. Manifest hands off playback to that app; start your playlist there, then return to Manifest and tap Begin.</p>
+      </details>
+
+      <details>
+        <summary>The wallpaper I saved isn't showing up in Photos.</summary>
+        <p>Make sure Manifest has permission to add photos — check iPhone Settings → Manifest → Photos is set to "Add Photos Only" or "All Photos". Then try saving again from the wallpaper screen.</p>
+      </details>
+    </section>
+
+    <section class="contact">
+      <h2 class="label" style="margin-bottom:8px;">Still need help?</h2>
+      <p>Email us and we'll get back to you as soon as we can.</p>
+      <a class="btn" href="mailto:7on132vv@manifestapp.anonaddy.com">Contact support</a>
+    </section>
+
+    <footer>
+      Manifest App: See it happen<br />
+      <a href="privacy-policy.html">Privacy Policy</a> · <a href="terms-of-use.html">Terms of Use</a>
+    </footer>
+  </div>
+</body>
+</html>
